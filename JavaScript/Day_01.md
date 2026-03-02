@@ -273,9 +273,9 @@ Usando las variables del ejercicio 1, crea un mensaje así:
 
         // Imprimir objetos del array     
         console.table(personas); // Todos los objetos del array
-        console.log(personas[0]); // Primer objeto del array
-        console.log(personas[1]); // Segundo objeto del array
-        console.log(personas[2]); // Tercer objeto del array
+        console.table(personas[0]); // Primer objeto
+        console.table(personas[1]); // Segundo objeto
+        console.table(personas[2]); // Tercer objeto
         ```
     + **`Ejecicio 2`**
         ```JS
