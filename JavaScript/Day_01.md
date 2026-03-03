@@ -148,112 +148,115 @@ Usando las variables del ejercicio 1, crea un mensaje así:
     console.time("mi-timer");
     // ...código...
     console.timeEnd("mi-timer");            // → mi-timer: 0.123ms
-    ````
-    > [!NOTE]
-    > `console.table()` es especialmente útil con **arrays** de **objetos**.
+    ```
+> [!NOTE]
+> `console.table()` es especialmente útil con **arrays** de **objetos**.
+
 - ##  Conversión de tipos de datos(Type Casting)
-    > [!IMPORTANT]
-    > **Conversión explícita — Tú lo haces a propósito**
-    + **`String()` = Convierte a texto**
-        ```JS
-        const numero = 42;
-        const texto = String(numero);
-        console.log(texto);         // → "42"
-        console.log(typeof texto);  // → string
-        ```
-    + **`Number()` = convierte a numero**
-        ```JS
-        const texto = "123";
-        const numero = Number(texto);
-        console.log(numero);         // → 123
-        console.log(typeof numero);  // → number
+> [!IMPORTANT]
+> **Conversión explícita — Tú lo haces a propósito**
 
-        // Casos especiales importantes:
-        console.log(Number("123abc")); // → NaN (Not a Number) ⚠️
-        console.log(Number(""));       // → 0
-        console.log(Number(true));     // → 1
-        console.log(Number(false));    // → 0
-        console.log(Number(null));     // → 0
-        ```
-    + **`Boolean()` = convierte a true / false**
-        ```JS
-        console.log(Boolean(1));        // → true
-        console.log(Boolean(0));        // → false  ⚠️
-        console.log(Boolean("hola"));   // → true
-        console.log(Boolean(""));       // → false  ⚠️
-        console.log(Boolean(null));     // → false  ⚠️
-        console.log(Boolean(undefined));// → false  ⚠️
-        ```
-        > [!NOTE]
-        > Los valores que se convierten a `false` se llaman **"falsy values"**: `0`, `""`, `null`, `undefined`, `NaN`, `false`. **!IMPORTANTE SABERLOS!**
-    + **`parseInt` y `parseFloat` — Para strings con números**
-        ```JS
-        const precio = "42.99 USD";
-        console.log(parseInt(precio));   // → 42   (solo entero)
-        console.log(parseFloat(precio)); // → 42.99 (con decimales)
++ **`String()` = Convierte a texto**
+  ```JS
+  const numero = 42;
+  const texto = String(numero);
+  console.log(texto);         // → "42"
+  console.log(typeof texto);  // → string
+  ```
++ **`Number()` = convierte a numero**
+  ```JS
+  const texto = "123";
+  const numero = Number(texto);
+  console.log(numero);         // → 123
+  console.log(typeof numero);  // → number
 
-        // Diferencia con Number():
-        console.log(Number("42.99 USD")); // → NaN ❌
-        console.log(parseFloat("42.99 USD")); // → 42.99 ✅
-        ```
-    > [!IMPORTANT]
-    > **Conversión implícita — JS lo hace solo (¡cuidado!)** 
+  // Casos especiales importantes:
+  console.log(Number("123abc")); // → NaN (Not a Number) ⚠️
+  console.log(Number(""));       // → 0
+  console.log(Number(true));     // → 1
+  console.log(Number(false));    // → 0
+  console.log(Number(null));     // → 0
+  ```
++ **`Boolean()` = convierte a true / false**
+  ```JS
+  console.log(Boolean(1));        // → true
+  console.log(Boolean(0));        // → false  ⚠️
+  console.log(Boolean("hola"));   // → true
+  console.log(Boolean(""));       // → false  ⚠️
+  console.log(Boolean(null));     // → false  ⚠️
+  console.log(Boolean(undefined));// → false  ⚠️
+  ```
+> [!IMPORTANT]
+> Los valores que se convierten a `false` se llaman **"falsy values"**: `0`, `""`, `null`, `undefined`, `NaN`, `false`. **!IMPORTANTE SABERLOS!**
 
-    JavaScript a veces convierte tipos de datos automáticamente, lo que puede causar bugs:
-    ```JS
-    // Suma vs concatenación
-    console.log(5 + 5);  // → 10  (número + número)
-    console.log("5" + 5);  // → "55" ⚠️ JS convierte 5 a string!
-    console.log("5" - 5);  // → 0   JS convierte "5" a número
-    console.log("5" * "2");  // → 10  JS convierte ambos a número
++ **`parseInt` y `parseFloat` — Para strings con números**
+  ```JS
+  const precio = "42.99 USD";
+  console.log(parseInt(precio));   // → 42   (solo entero)
+  console.log(parseFloat(precio)); // → 42.99 (con decimales)
 
-    // La comparación débil (==) también hace conversión
-    console.log(5 == "5"); // → true ⚠️ compara valor, ignora tipo de dato
-    console.log(5 === "5"); // → false  ✅ compara valor Y tipo
-    ```
-    > [!TIP]
-    > #### Usa siempre `===` (triple igual) para **comparar**. Nunca `==`. El `===` no hace conversión implícita.
+  // Diferencia con Number():
+  console.log(Number("42.99 USD")); // → NaN ❌
+  console.log(parseFloat("42.99 USD")); // → 42.99 ✅
+  ```
+> [!IMPORTANT]
+> **Conversión implícita — JS lo hace solo (¡cuidado!)** 
 
-    **`NaN` — Not a Number**
-    ```JS
-    const resultado = Number("abc");
-    console.log(resultado); // → NaN
-    console.log(typeof NaN); // → number (¡sí, es irónico!)
+JavaScript a veces convierte tipos de datos automáticamente, lo que puede causar bugs:
+```JS
+// Suma vs concatenación
+console.log(5 + 5);  // → 10  (número + número)
+console.log("5" + 5);  // → "55" ⚠️ JS convierte 5 a string!
+console.log("5" - 5);  // → 0   JS convierte "5" a número
+console.log("5" * "2");  // → 10  JS convierte ambos a número
 
-    // Para verificar si algo es NaN:
-    console.log(isNaN("abc")); // → true
-    console.log(isNaN(42));  // → false
-    console.log(Number.isNaN("abc")); // → false ⚠️ (más estricto)
-    console.log(Number.isNaN(NaN)); // → true  ✅
-    ```
-    ## 💻 EJERCICIOS
-    **Ejercicio 1 — console:**
+// La comparación débil (==) también hace conversión
+console.log(5 == "5"); // → true ⚠️ compara valor, ignora tipo de dato
+console.log(5 === "5"); // → false  ✅ compara valor Y tipo
+```
+> [!TIP]
+> #### Usa siempre `===` (triple igual) para **comparar**. Nunca `==`. El `===` no hace conversión implícita.
+
+**`NaN` — Not a Number**
+```JS
+const resultado = Number("abc");
+console.log(resultado); // → NaN
+console.log(typeof NaN); // → number (¡sí, es irónico!)
+
+// Para verificar si algo es NaN:
+console.log(isNaN("abc")); // → true
+console.log(isNaN(42));  // → false
+console.log(Number.isNaN("abc")); // → false ⚠️ (más estricto)
+console.log(Number.isNaN(NaN)); // → true  ✅
+```
+## 💻 EJERCICIOS
+**Ejercicio 1 — console:**
     Crea un array de objetos con 3 personas (nombre, edad, ciudad) y muéstralo con console.table().
     
-    **Ejercicio 2 — Conversión:**
+**Ejercicio 2 — Conversión:**
     Tienes estos valores. Conviértelos al tipo indicado e imprime el resultado:
-    ```JS
+```JS
     const a = "456";      // → convertir a Number
     const b = 0;          // → convertir a Boolean
     const c = null;       // → convertir a String
     const d = "3.75 kg";  // → extraer solo el número decimal
     const e = true;       // → convertir a Number
-    ```
-    **Ejercicio 3 — Trampa JS:**
+```
+**Ejercicio 3 — Trampa JS:**
     ¿Qué imprime cada línea? Primero intenta adivinarlo sin ejecutar el código, luego verifícalo:
-    ```JS
+```JS
     console.log("10" + 5);
     console.log("10" - 5);
     console.log(true + 1);
     console.log(null + 1);
     console.log("5" == 5);
     console.log("5" === 5);
-    ```
+```
 
-    ## Answer
-    + **`Ejecicio 1`**
-        ```JS
-         const personas = [
+## Answer
++ **`Ejecicio 1`**
+  ```JS
+  const personas = [
             {
                 name: "Juan",
                 age: 45,
@@ -271,40 +274,40 @@ Usando las variables del ejercicio 1, crea un mensaje así:
             }
         ]
 
-        // Imprimir objetos del array     
-        console.table(personas); // Todos los objetos del array
-        console.table(personas[0]); // Primer objeto
-        console.table(personas[1]); // Segundo objeto
-        console.table(personas[2]); // Tercer objeto
-        ```
-    + **`Ejecicio 2`**
-        ```JS
-        const a = "456";
-        const numberA = Number(a); // → convertir a Number
-        console.log(numberA); // 456
+  // Imprimir objetos del array     
+  console.table(personas); // Todos los objetos del array
+  console.table(personas[0]); // Primer objeto
+  console.table(personas[1]); // Segundo objeto
+  console.table(personas[2]); // Tercer objeto
+  ```
++ **`Ejecicio 2`**
+  ```JS
+  const a = "456";
+  const numberA = Number(a); // → convertir a Number
+  console.log(numberA); // 456
 
-        const b = 0;          
-        const booleanA = Boolean(b); // → convertir a Boolean
-        console.log(booleanA); // false
+  const b = 0;          
+  const booleanA = Boolean(b); // → convertir a Boolean
+  console.log(booleanA); // false
 
-        const c = null;       
-        const stringA = String(c); // → convertir a String
-        console.log(stringA); // "null"
+  const c = null;       
+  const stringA = String(c); // → convertir a String
+  console.log(stringA); // "null"
 
-        const d = "3.75 kg";  
-        const numberB = parseFloat(d); // → extraer solo el número decimal
-        console.log(numberB); // 3.75
+  const d = "3.75 kg";  
+  const numberB = parseFloat(d); // → extraer solo el número decimal
+  console.log(numberB); // 3.75
 
-        const e = true;       
-        const numberC = Number(e); // → convertir a Number
-        console.log(numberC); // 1
-        ```
-    + **`Ejecicio 3`**
-        ```JS
-        console.log("10" + 5); // Imprime "105", porque JS convierte 5 en un string
-        console.log("10" - 5); // Imprime 5, porque JS convierte "10" en un numero
-        console.log(true + 1); // Imprime 2 porque true == 1
-        console.log(null + 1); // Imprime 1 porque null se convierte directamente a 0
-        console.log("5" == 5); // Imprime true porque == no es estricto y solo compara el valor y no con el tipo de dato
-        console.log("5" === 5); // Imprime false porque === es estricto y compara el valor y el tipo de dato
-        ```
+  const e = true;       
+  const numberC = Number(e); // → convertir a Number
+  console.log(numberC); // 1
+  ```
++ **`Ejecicio 3`**
+  ```JS
+  console.log("10" + 5); // Imprime "105", porque JS convierte 5 en un string
+  console.log("10" - 5); // Imprime 5, porque JS convierte "10" en un numero
+  console.log(true + 1); // Imprime 2 porque true == 1
+  console.log(null + 1); // Imprime 1 porque null se convierte directamente a 0
+  console.log("5" == 5); // Imprime true porque == no es estricto y solo compara el valor y no con el tipo de dato
+  console.log("5" === 5); // Imprime false porque === es estricto y compara el valor y el tipo de dato
+  ```
