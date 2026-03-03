@@ -32,3 +32,18 @@
 
 💪 Nota del día: 10/10 — ¡Día perfecto, sin errores!
 ```
+# PUNTO DE AVANCE — Día 3
+```
+✅ Temas completados:
+   - Condicionales: if / else
+   - Condicionales: else if
+   - Operador ternario (incluyendo ternario anidado)
+
+🏆 Ejercicios:
+   - Ejercicio de condicionales: 4/4 ✅
+
+📝 Pendiente para mañana:
+   - Nuevo bloque: Bucles (for, while, do while)
+
+💪 Nota del día: 10/10 — ¡Sólido y sin errores!
+```
