@@ -14,11 +14,12 @@
         console.log(a % b); // Residuo-Division: 1
         console.log(a ** b); // Potencia: (10³) = 1000
         ```
-        > [!NOTE]
-        >  **El módulo `%` es muy usado en programación — sirve para saber si un número es par o impar, entre otras cosas.**
-    2. ### Operadores de Comparacion
-        Comparan dos valores y siempre devuelven un Boolean = `true` o `false`;
-        ```JS
+> [!NOTE]
+>  **El módulo `%` es muy usado en programación — sirve para saber si un número es par o impar, entre otras cosas.**
+
+2. ### Operadores de Comparacion
+   Comparan dos valores y siempre devuelven un Boolean = `true` o `false`;
+   ```JS
         let x = 5;
 
         console.log(x > 3); // true porque x es mayor que 3
@@ -27,24 +28,24 @@
         console.log(x <= 4); // false porque x no es menor o igual a 4
         console.log(x == 5); // true porque x es igual a 5 y no se compara el tipo de dato
         console.log(x != 5); // false porque x no es diferente a 5
-        ```
-    3. ### Operadores Lógicos
-        Combinan condiciones
-        ```JS
+   ```
+3. ### Operadores Lógicos
+   Combinan condiciones
+   ```JS
         let edad = 20;
         let tieneID = true;
 
         console.log(edad >= 18 && tieneID); // true porque (AND o &&) deben ser las dos condiciones verdaderas
         console.log(edad < 18 || tieneID); // true porque (OR o ||) solo necesita una de las condiciones sea verdadera
         console.log(!tieneID); // false porque (NOT o !) invierte el valor de la variable, en este caso true se convierte en false
-        ```
-        ```JS
+   ```
+   ```JS
         | Operador | Nombre |               Resultado              |
         |----------|--------|--------------------------------------|
         |    &&    |   AND  | `true` solo si /*ambos*/ son `true`  |
         |    ||    |   OR   | `true` si /*al menos uno*/ es `true` |
         |    !     |   NOT  | Invierte el valor                    |
-        ```
+   ```
 
 ## Ejecicio - Operadores
 Resolver lo siguiente sin correr el codigo primero y intenta predecir el resultado de cada  `console.log`
@@ -70,7 +71,7 @@ console.log(b > 5 || activo);
 console.log(!activo);
 ```
 > [!IMPORTANT]
-> # El módulo **%**
+> # El módulo **%**, no porcentaje
 > 
 > El módulo devuelve el residuo `(lo que sobra)` de una división entera.
 > 
